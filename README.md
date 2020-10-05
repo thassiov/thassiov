@@ -1,5 +1,6 @@
 ### Hi there 👋
 
+![behold my stuff](./readme.png)
 <!--
 **thassiov/thassiov** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
