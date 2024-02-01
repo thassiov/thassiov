@@ -10,7 +10,7 @@ config();
 const BASE_IMAGE_PATH = resolve('behold-no-bg.png');
 
 const gh = new Octokit({
-  auth: process.env.PERSONAL_TOKEN as string,
+  auth: process.env.GITHUB_TOKEN as string,
 });
 
 type GHActivityResponseList =
