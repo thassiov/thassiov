@@ -1,7 +1,13 @@
 import { Octokit, RestEndpointMethodTypes } from '@octokit/rest';
 import { config } from 'dotenv';
+import Jimp from 'jimp';
+import { resolve } from 'path';
+
+import { GHAPICallError, ImageEditorError } from './errors';
 
 config();
+
+const BASE_IMAGE_PATH = resolve('behold-no-bg.png');
 
 const gh = new Octokit({
   auth: process.env.PERSONAL_TOKEN as string,
@@ -23,11 +29,17 @@ type WatchedRepo = {
 };
 
 async function getRecentActivity(): Promise<GHActivityResponseList> {
-  const result = await gh.rest.activity.listEventsForAuthenticatedUser({
-    username: 'thassiov',
-  });
+  try {
+    const result = await gh.rest.activity.listEventsForAuthenticatedUser({
+      username: 'thassiov',
+    });
 
-  return result.data;
+    return result.data;
+  } catch (error) {
+    throw new GHAPICallError('Could not get latests activity from GitHub', {
+      cause: error as Error,
+    });
+  }
 }
 
 /**
@@ -78,12 +90,103 @@ function getLatestWatchedRepos(
   return watched.slice(0, 3);
 }
 
+async function readBaseImage(): Promise<Jimp> {
+  try {
+    const image = await Jimp.read(BASE_IMAGE_PATH);
+    return image;
+  } catch (error) {
+    throw new ImageEditorError('Could not load base image', {
+      cause: error as Error,
+    });
+  }
+}
+
+async function addLatestCommitInfoToImage(
+  image: Jimp,
+  commit: Commit | string
+): Promise<Jimp> {
+  const MAX_WIDTH_COMMIT_MESSAGE = 300;
+  const MAX_WIDTH_COMMIT_INFO = 265;
+  const sans32black = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
+  const sans32white = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
+  const sans16white = await Jimp.loadFont(Jimp.FONT_SANS_16_WHITE);
+
+  image.print(sans32black, 360, 500, 'My latest commit');
+
+  if (typeof commit === 'string') {
+    image.print(sans32white, 360, 567, `"${commit}"`, MAX_WIDTH_COMMIT_MESSAGE);
+    return image;
+  }
+
+  // commit message
+  image.print(
+    sans32white,
+    360,
+    567,
+    `"${commit.message}"`,
+    MAX_WIDTH_COMMIT_MESSAGE
+  );
+
+  // commit info - sha
+  image.print(
+    sans16white,
+    395,
+    747,
+    `${commit.commitSha.slice(0, 6)}`,
+    MAX_WIDTH_COMMIT_INFO
+  );
+
+  // commit info - time
+  image.print(
+    sans16white,
+    395,
+    768,
+    `${commit.pushedAt}`,
+    MAX_WIDTH_COMMIT_INFO
+  );
+
+  // commit info - repo
+  image.print(sans16white, 395, 788, `${commit.repo}`, MAX_WIDTH_COMMIT_INFO);
+
+  return image;
+}
+
+async function saveNewimage(image: Jimp): Promise<void> {
+  try {
+    // lol
+    const newFilename =
+      (BASE_IMAGE_PATH.split('/').reverse()[0]!.split('.')[0] as string) +
+      '-latest.png';
+
+    const filePath =
+      BASE_IMAGE_PATH.split('/').slice(0, -1).join('/') + `/${newFilename}`;
+
+    await image.writeAsync(filePath);
+  } catch (error) {
+    throw new ImageEditorError('Could not write edited image', {
+      cause: error as Error,
+    });
+  }
+}
+
 (async () => {
-  const resp = await getRecentActivity();
+  try {
+    const resp = await getRecentActivity();
 
-  const latestCommit = getLatestCommit(resp);
-  const watchedRepos = getLatestWatchedRepos(resp);
+    let image = await readBaseImage();
 
-  console.log(latestCommit);
-  console.log(watchedRepos);
+    image = await addLatestCommitInfoToImage(image, getLatestCommit(resp));
+
+    getLatestWatchedRepos(resp);
+
+    await saveNewimage(image);
+  } catch (error) {
+    console.error(
+      'A problem happened during the creation of the new image and the operation could not finish. More details below.'
+    );
+    console.error((error as Error).message);
+    console.error((error as Error).stack);
+    console.error('Exiting...');
+    process.exit(1);
+  }
 })();
