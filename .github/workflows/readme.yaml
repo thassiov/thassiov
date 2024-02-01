@@ -1,6 +1,8 @@
 name: Update readme with latest activity
 
-on:
+on: 
+  push:
+  workflow_dispatch:
   schedule:
     # runs every 10 minutes
     - cron: "*/10 * * * *"
