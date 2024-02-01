@@ -87,7 +87,7 @@ function getLatestWatchedRepos(
     return "Didn't starred any repo in a while...";
   }
 
-  return watched.slice(0, 3);
+  return watched.slice(0, 5);
 }
 
 async function readBaseImage(): Promise<Jimp> {
@@ -153,7 +153,7 @@ async function addLatestCommitInfoToImage(
 
 async function addStarredReposToImage(
   image: Jimp,
-  watched: WatchedRepo | string
+  watched: WatchedRepo[] | string
 ): Promise<Jimp> {
   const MAX_WIDTH_REPO_INFO = 265;
   const sans16black = await Jimp.loadFont(Jimp.FONT_SANS_16_BLACK);
@@ -165,6 +165,35 @@ async function addStarredReposToImage(
     image.print(sans16white, 14, 612, watched, MAX_WIDTH_REPO_INFO);
     return image;
   }
+
+  let textStartAt = 610;
+
+  watched.forEach((repo) => {
+    if (repo.name.length > 30) {
+      const [username, repoName] = repo.name.split('/');
+
+      image.print(sans16white, 30, textStartAt, username, MAX_WIDTH_REPO_INFO);
+      textStartAt += 20;
+      image.print(
+        sans16white,
+        30,
+        textStartAt,
+        `/${repoName}`,
+        MAX_WIDTH_REPO_INFO
+      );
+    } else {
+      image.print(sans16white, 30, textStartAt, repo.name, MAX_WIDTH_REPO_INFO);
+    }
+    textStartAt += 25;
+    image.print(
+      sans16white,
+      30,
+      textStartAt,
+      repo.starredAt,
+      MAX_WIDTH_REPO_INFO
+    );
+    textStartAt += 40;
+  });
 
   return image;
 }
@@ -210,12 +239,7 @@ async function saveNewimage(image: Jimp): Promise<void> {
 
     image = await addFontSizeNotice(image);
     image = await addLatestCommitInfoToImage(image, getLatestCommit(resp));
-    image = await addStarredReposToImage(
-      image,
-      "Didn't starred any repo in a while..."
-    );
-
-    getLatestWatchedRepos(resp);
+    image = await addStarredReposToImage(image, getLatestWatchedRepos(resp));
 
     await saveNewimage(image);
   } catch (error) {
