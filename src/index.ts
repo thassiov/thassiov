@@ -151,6 +151,39 @@ async function addLatestCommitInfoToImage(
   return image;
 }
 
+async function addStarredReposToImage(
+  image: Jimp,
+  watched: WatchedRepo | string
+): Promise<Jimp> {
+  const MAX_WIDTH_REPO_INFO = 265;
+  const sans16black = await Jimp.loadFont(Jimp.FONT_SANS_16_BLACK);
+  const sans16white = await Jimp.loadFont(Jimp.FONT_SANS_16_WHITE);
+
+  image.print(sans16black, 20, 567, "I've been liking this repos also");
+
+  if (typeof watched === 'string') {
+    image.print(sans16white, 14, 612, watched, MAX_WIDTH_REPO_INFO);
+    return image;
+  }
+
+  return image;
+}
+
+async function addFontSizeNotice(image: Jimp): Promise<Jimp> {
+  const MAX_WIDTH_FONT_NOTICE = 320;
+  const sans16white = await Jimp.loadFont(Jimp.FONT_SANS_16_WHITE);
+
+  image.print(
+    sans16white,
+    15,
+    490,
+    "tHiS fOnT iS tOo SmAlL i CaN't Re- I know the font is not good. I'll fix it later",
+    MAX_WIDTH_FONT_NOTICE
+  );
+
+  return image;
+}
+
 async function saveNewimage(image: Jimp): Promise<void> {
   try {
     // lol
@@ -175,7 +208,12 @@ async function saveNewimage(image: Jimp): Promise<void> {
 
     let image = await readBaseImage();
 
+    image = await addFontSizeNotice(image);
     image = await addLatestCommitInfoToImage(image, getLatestCommit(resp));
+    image = await addStarredReposToImage(
+      image,
+      "Didn't starred any repo in a while..."
+    );
 
     getLatestWatchedRepos(resp);
 
