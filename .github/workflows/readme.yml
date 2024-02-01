@@ -1,9 +1,10 @@
 name: Update readme with latest activity
 
 on: 
-  push:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: "0 */1 * * *"
+  workflow_dispatch:
+  push:
 
 jobs:
   build:
@@ -24,5 +25,3 @@ jobs:
           git add -A
           git commit -m "Updating header image with the latest stats" || exit 0
           git push
-
-
