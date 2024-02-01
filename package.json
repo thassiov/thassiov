@@ -1,14 +1,19 @@
 {
+  "private": true,
   "name": "thassiov",
   "version": "1.0.0",
   "description": "![behold my stuff](./readme.png)",
-  "main": "index.js",
+  "main": "./src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "dev": "nodemon",
+    "lint": "eslint \"src/**/*.ts\" --fix",
+    "start:ts": "ts-node ./src/index.ts",
+    "start": "npm run build && node ./dist/index.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Thassio Victor <tvmcarvalho@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.11.15",
     "@typescript-eslint/eslint-plugin": "^6.20.0",
@@ -21,6 +26,9 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@octokit/rest": "^20.0.2",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "dotenv": "^16.4.1",
     "jimp": "^0.22.10"
   }
 }
