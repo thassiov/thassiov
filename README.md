@@ -1,6 +1,6 @@
 ![behold my stuff](./behold-no-bg-latest.png)
 
-Jokes aside, I'm a (mostly) backend developer that does stuff in Javascript/Typescript (95%) and Go (5%, but wanting to do more).
+Jokes aside, I'm a backend developer (mostly, but I do some React from time to time) that does stuff in Javascript/Typescript (95%) and Go (5%, but wanting to do more).
 
 <details>
   <summary>The image is updated via gh actions</summary>
