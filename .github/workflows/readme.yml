@@ -22,8 +22,10 @@ jobs:
         run: |-
           npm start
           git diff
+          sed -i 's/Last updated at:.*/Last updated at: '"$(date)"'/' README.md
           git config --global user.email "actions@users.noreply.github.com"
           git config --global user.name "README-bot"
           git add -A
-          git commit -m "Updating header image with the latest stats" || exit 0
+          git commit -m "Updating readme's header image with the latest stats" || exit 0
           git push
+
