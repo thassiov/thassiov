@@ -11,7 +11,7 @@ Jokes aside, I'm a (mostly) backend developer that does stuff in Javascript/Type
   - filter the 5 latest starred/watched repos (repo, date)
   - edit the [base image](./behold-no-bg.png) using [Jimp](https://github.com/jimp-dev/jimp) to place the text in the _correct_ spot
   - save a new copy of that image, making it overwrite [behold-no-bg-latest.png](./behold-no-bg-latest.png)
-  - commit the changes via [this little action](./github/workflows/readme.yml)
+  - commit the changes via [this little action](.github/workflows/readme.yml)
 
   It runs every 10 minutes [or so](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule) and when something changes compared to the last data fetch (in this case, the generated image is diff'ed, so there is that), we commit this changes and the new image is published.
 
