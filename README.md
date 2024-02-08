@@ -8,11 +8,14 @@ Jokes aside, I'm a backend developer (mostly, but I do some *React* from time to
 Study on chrome extension development.
 Get text selected in the browser and store it (kind of like [Pocket](https://getpocket.com), but with just text selections).
 
-- frontend [markmywords-chrome-extension](https://github.com/thassiov/markmywords-chrome-extension)
+- Frontend [markmywords-chrome-extension](https://github.com/thassiov/markmywords-chrome-extension)
     - chrome extension using react (and some other stuff - i don't know frontend)
-- backend: [markmywords-backend](https://github.com/thassiov/markmywords-backend) ![](https://github.com/thassiov/markmywords-backend/actions/workflows/test.yaml/badge.svg)
+- Backend: [markmywords-backend](https://github.com/thassiov/markmywords-backend) 
     - restful api using typescript, express and sequelize
+    - ![](https://github.com/thassiov/markmywords-backend/actions/workflows/test.yaml/badge.svg)
 
+
+--------------- 
 <details>
   <summary>The image is updated via gh actions</summary>
   
