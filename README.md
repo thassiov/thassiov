@@ -1,19 +1,24 @@
 ![behold my stuff](./behold-no-bg-latest.png)
 
-Jokes aside, I'm a backend developer (mostly, but I do some *React* from time to time) that does stuff in *Javascript/Typescript* (95%) and *Go* (5%, but wanting to do more).
+<div align="center">
+<samp>
+Jokes aside, I'm a backend developer (mostly, but I do some <i>React</i> from time to time) that does stuff in <i>Javascript/Typescript</i> (95%) and <i>Go</i> (5%, but wanting to do more).
+</samp>
+</div>
 
-## Current project
+## My current project
 
-### mark my words
-Study on chrome extension development.
-Get text selected in the browser and store it (kind of like [Pocket](https://getpocket.com), but with just text selections).
+### mark my words - A study on chrome extension development.
+The user selects a text in a webpage and the extension stores it in the backend (kind of like [Pocket](https://getpocket.com), but with just text selections).
+The system has basic auth (usernane/email+password).
 
 - Frontend [markmywords-chrome-extension](https://github.com/thassiov/markmywords-chrome-extension)
-    - chrome extension using react (and some other stuff - i don't know frontend)
-- Backend: [markmywords-backend](https://github.com/thassiov/markmywords-backend) 
-    - restful api using typescript, express and sequelize
-    - ![](https://github.com/thassiov/markmywords-backend/actions/workflows/test.yaml/badge.svg)
+    - chrome extension using [React](https://react.dev/) (and some other stuff - i don't know frontend).
+    - ![](https://github.com/thassiov/markmywords-chrome-extension/actions/workflows/test.yaml/badge.svg)
 
+- Backend: [markmywords-backend](https://github.com/thassiov/markmywords-backend)
+    - restful api using [Typescript](https://www.typescriptlang.org/), [Express](https://expressjs.com/) and [Sequelize](https://sequelize.org/), running on a [Docker](https://www.docker.com/) container.
+    - ![](https://github.com/thassiov/markmywords-backend/actions/workflows/test.yaml/badge.svg)
 
 --------------- 
 <details>
