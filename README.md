@@ -15,7 +15,7 @@ Get text selected in the browser and store it (kind of like [Pocket](https://get
 
 ![readme](https://github.com/thassiov/thassiov/actions/workflows/reame.yml/badge.svg)
 <details>
-  <summary>The image is updated via gh actions (Last updated at: Fri Feb  2 07:34:06 UTC 2024)</summary>
+  <summary>The image is updated via gh actions (Last updated at: Thu Feb  8 17:59:23 UTC 2024
   
   The idea behind it is:
   - call GitHub's REST API (using [@octokit/rest](https://octokit.github.io/rest.js/v20)) for the latests public acitivity in my account
