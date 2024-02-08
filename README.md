@@ -13,7 +13,7 @@ Get text selected in the browser and store it (kind of like [Pocket](https://get
 - backend: [markmywords-backend](https://github.com/thassiov/markmywords-backend)
     - restful api using typescript, express and sequelize
 
-![readme](https://github.com/thassiov/thassiov/actions/workflows/reame.yml/badge.svg)
+![readme](https://github.com/thassiov/thassiov/actions/workflows/readme.yml/badge.svg)
 <details>
   <summary>The image is updated via gh actions (Last updated at: Thu Feb  8 17:59:23 UTC 2024
   
