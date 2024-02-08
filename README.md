@@ -1,9 +1,21 @@
 ![behold my stuff](./behold-no-bg-latest.png)
 
-Jokes aside, I'm a backend developer (mostly, but I do some React from time to time) that does stuff in Javascript/Typescript (95%) and Go (5%, but wanting to do more).
+Jokes aside, I'm a backend developer (mostly, but I do some *React* from time to time) that does stuff in *Javascript/Typescript* (95%) and *Go* (5%, but wanting to do more).
 
+## Current project
+
+### mark my words
+Study on chrome extension development.
+Get text selected in the browser and store it (kind of like [Pocket](https://getpocket.com), but with just text selections).
+
+- frontend [markmywords-chrome-extension](https://github.com/thassiov/markmywords-chrome-extension)
+    - chrome extension using react (and some other stuff - i don't know frontend)
+- backend: [markmywords-backend](https://github.com/thassiov/markmywords-backend)
+    - restful api using typescript, express and sequelize
+
+![readme](https://github.com/thassiov/thassiov/actions/workflows/reame.yml/badge.svg)
 <details>
-  <summary>The image is updated via gh actions</summary>
+  <summary>The image is updated via gh actions (Last updated at: Fri Feb  2 07:34:06 UTC 2024)</summary>
   
   The idea behind it is:
   - call GitHub's REST API (using [@octokit/rest](https://octokit.github.io/rest.js/v20)) for the latests public acitivity in my account
@@ -17,5 +29,3 @@ Jokes aside, I'm a backend developer (mostly, but I do some React from time to t
 
   [The code that does it.](./src/index.ts)
 </details>
-
-Last updated at: Thu Feb  8 17:53:12 UTC 2024
