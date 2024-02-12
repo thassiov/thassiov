@@ -9,7 +9,7 @@ The user selects a text in a webpage and the extension stores it in the backend 
 The system has basic auth (usernane/email+password).
 
 - Frontend [markmywords-chrome-extension](https://github.com/thassiov/markmywords-chrome-extension)
-    - chrome extension using [React](https://react.dev/) (and some other stuff - i don't know frontend).
+    - chrome extension using [React](https://react.dev/).
     - ![](https://github.com/thassiov/markmywords-chrome-extension/actions/workflows/test.yaml/badge.svg)
 
 - Backend: [markmywords-backend](https://github.com/thassiov/markmywords-backend)
