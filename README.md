@@ -3,7 +3,7 @@
 Jokes aside, I'm a backend developer (mostly, but I do some <i>React</i> from time to time) that does stuff in <i>Javascript/Typescript</i> (95%) and <i>Go</i> (5%, but wanting to do more).
 
 ### Environment
-![xps](https://img.shields.io/badge/dell-XPS%2013%20-007DB8?style=for-the-badge&logo=dell&logoColor=white)
+![xps](https://img.shields.io/badge/dell-XPS%209320%20-007DB8?style=for-the-badge&logo=dell&logoColor=white)
 ![Archbtw](https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)
 ![Neovim](https://img.shields.io/badge/NeoVim-%2357A143.svg?&style=for-the-badge&logo=neovim&logoColor=white)
 ![Alacritty](https://img.shields.io/badge/alacritty-F46D01?style=for-the-badge&logo=alacritty&logoColor=white)
