@@ -2,6 +2,16 @@
 
 Jokes aside, I'm a backend developer (mostly, but I do some <i>React</i> from time to time) that does stuff in <i>Javascript/Typescript</i> (95%) and <i>Go</i> (5%, but wanting to do more).
 
+## My current project: ais - accounts and identities service
+#### Think *Auth0* or *AWS Cognito*, but small and naive
+
+This is an exercise on developing a service for creating accounts (the thing with `id`, `email`, `phone`, `roles`) and identities (`name`, `age`, `gender`) that you could use to integrate with another service. For instance, an ecommerce website.
+
+There's nothing new or inovative about this service in terms of features. What I intend to with it is run it as a standalone service in a container and responds to http requests, but also has the option to be imported as a lib in a codebase.
+
+It will have versions in Nodejs and Go.
+
+
 ### Environment
 ![xps](https://img.shields.io/badge/dell-XPS%209320%20-007DB8?style=for-the-badge&logo=dell&logoColor=white)
 ![Archbtw](https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)
@@ -39,21 +49,6 @@ Jokes aside, I'm a backend developer (mostly, but I do some <i>React</i> from ti
 ### Cloud
 ![AWS](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
 
-
-## My current project
-
-### mark my words - A study on chrome extension development.
-The user selects a text in a webpage and the extension stores it in the backend (kind of like [Pocket](https://getpocket.com), but with just text selections).
-The system has basic auth (usernane/email+password).
-
-- Frontend [markmywords-chrome-extension](https://github.com/thassiov/markmywords-chrome-extension)
-    - chrome extension using [React](https://react.dev/).
-    - ![](https://github.com/thassiov/markmywords-chrome-extension/actions/workflows/test.yaml/badge.svg)
-
-- Backend: [markmywords-backend](https://github.com/thassiov/markmywords-backend)
-    - restful api using [Typescript](https://www.typescriptlang.org/), [Express](https://expressjs.com/) and [Sequelize](https://sequelize.org/), running on a [Docker](https://www.docker.com/) container.
-    - ![](https://github.com/thassiov/markmywords-backend/actions/workflows/test.yaml/badge.svg)
-
 --------------- 
 <details>
   <summary>The image is updated via gh actions</summary>
@@ -70,6 +65,6 @@ The system has basic auth (usernane/email+password).
 
   [The code that does it.](./src/index.ts)
 
-Last updated at: Thu Sep 26 19:09:14 UTC 2024
+Last updated at: Thu Sep 26 18:36:10 UTC 2024
 ![readme](https://github.com/thassiov/thassiov/actions/workflows/readme.yml/badge.svg)
 </details>
