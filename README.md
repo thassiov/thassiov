@@ -7,7 +7,7 @@ Jokes aside, I'm a backend developer (mostly, but I do some <i>React</i> from ti
 
 This is an exercise on developing a service for creating accounts (the thing with `id`, `email`, `phone`, `roles`) and identities (`name`, `age`, `gender`) that you could use to integrate with another service. For instance, an ecommerce website.
 
-There's nothing new or inovative about this service in terms of features. What I intend to with it is run it as a standalone service in a container and responds to http requests, but also has the option to be imported as a lib in a codebase.
+There's nothing new or inovative about this service in terms of features. Its purpose is to run as a standalone service in a container that responds to http requests, but also having the option to be imported as a lib in a codebase.
 
 It will have versions in Nodejs and Go.
 
