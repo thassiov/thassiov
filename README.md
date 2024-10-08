@@ -2,10 +2,9 @@
 
 Jokes aside, I'm a backend developer (mostly, but I do some <i>React</i> from time to time) that does stuff in <i>Javascript/Typescript</i> (95%) and <i>Go</i> (5%, but wanting to do more).
 
-## My current project: ais - accounts and identities service
-#### Think *Auth0* or *AWS Cognito*, but small and naive
+## My current project: aps - accounts and profiles service
 
-This is an exercise on developing a service for creating accounts (the thing with `id`, `email`, `phone`, `roles`) and identities (`name`, `age`, `gender`) that you could use to integrate with another service. For instance, an ecommerce website.
+This is an exercise on developing a service for creating accounts (the thing with `id`, `email`, `phone`, `roles`) and profiles (`name`, `age`, `gender`) that you could use to integrate with another service. For instance, an ecommerce website.
 
 There's nothing new or inovative about this service in terms of features. Its purpose is to run as a standalone service in a container that responds to http requests, but also having the option to be imported as a lib in a codebase.
 
