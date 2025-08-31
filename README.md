@@ -2,13 +2,12 @@
 
 Jokes aside, I'm a backend developer (mostly, but I do some <i>React</i> from time to time) that does stuff in <i>Javascript/Typescript</i> (95%) and <i>Go</i> (5%, but wanting to do more).
 
-## My current project: aps - accounts and profiles service
+## My current project: sump - simple user management platform
 
-This is an exercise on developing a service for creating accounts (the thing with `id`, `email`, `phone`, `roles`) and profiles (`name`, `age`, `gender`) that you could use to integrate with another service. For instance, an ecommerce website.
+repo: [https://github.com/thassiov/sump](https://github.com/thassiov/sump)
 
-There's nothing new or inovative about this service in terms of features. Its purpose is to run as a standalone service in a container that responds to http requests, but also having the option to be imported as a lib in a codebase.
-
-It will have versions in Nodejs and Go.
+Intended as an Identity Provider (here called user management), like the services provided by Auth0 or AWS Cognito, that uses OpenID Connect as authentication provider and that can be self hosted. 
+It is a study on the Saga pattern for microservices and on making a program that can be used as either an imported npm package, a standalone monolith or broken into smaller microservices.
 
 
 ### Environment
