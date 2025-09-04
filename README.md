@@ -1,4 +1,4 @@
-![behold my stuff](./behold-no-bg-latest.png)
+[![behold my stuff](./behold-no-bg-latest.png)](https://www.youtube.com/watch?v=kAiDGQAncGE)
 
 Jokes aside, I'm a backend developer (mostly, but I do some <i>React</i> from time to time) that does stuff in <i>Javascript/Typescript</i> (95%) and <i>Go</i> (5%, but wanting to do more).
 
