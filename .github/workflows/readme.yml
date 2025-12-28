@@ -1,10 +1,9 @@
 name: Update readme with latest activity
 
-on: 
+on:
   schedule:
-    - cron: "0/10 * * * *"
+    - cron: "0 */2 * * *"
   workflow_dispatch:
-  push:
 
 jobs:
   build:
@@ -21,11 +20,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         run: |-
           npm start
-          git diff
-          sed -i 's/Last updated at:.*/Last updated at: '"$(date)"'/' README.md
+          if git diff --quiet behold-no-bg-latest.png; then
+            echo "No changes to image, skipping commit"
+            exit 0
+          fi
           git config --global user.email "actions@users.noreply.github.com"
           git config --global user.name "README-bot"
-          git add -A
-          git commit -m "Updating readme's header image with the latest stats" || exit 0
+          git add behold-no-bg-latest.png
+          git commit -m "Updating readme's header image with the latest stats"
           git push
 
