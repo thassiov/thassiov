@@ -45,21 +45,38 @@ async function getRecentActivity(): Promise<GHActivityResponseList> {
 /**
  * Gets my latest commit
  */
-function getLatestCommit(response: GHActivityResponseList): Commit | string {
-  const latestCommit = response.find(
+async function getLatestCommit(
+  response: GHActivityResponseList
+): Promise<Commit | string> {
+  const latestPushEvent = response.find(
     (item) => item.type === 'PushEvent' && item.public === true
   );
 
-  if (!latestCommit) {
+  if (!latestPushEvent) {
     return "Looks like I've been AFK. I'm probably sim racing.";
   }
 
-  return {
-    repo: latestCommit!.repo.name,
-    commitSha: (latestCommit!.payload as any).commits[0].sha as string,
-    message: (latestCommit!.payload as any).commits[0].message as string,
-    pushedAt: latestCommit.created_at as string,
-  };
+  const [owner, repo] = latestPushEvent.repo.name.split('/') as [string, string];
+  const sha = (latestPushEvent.payload as any).head as string;
+
+  try {
+    const commitDetails = await gh.rest.repos.getCommit({
+      owner,
+      repo,
+      ref: sha,
+    });
+
+    return {
+      repo: latestPushEvent.repo.name,
+      commitSha: sha,
+      message: commitDetails.data.commit.message,
+      pushedAt: latestPushEvent.created_at as string,
+    };
+  } catch (error) {
+    throw new GHAPICallError('Could not fetch commit details from GitHub', {
+      cause: error as Error,
+    });
+  }
 }
 
 /**
@@ -238,7 +255,7 @@ async function saveNewimage(image: Jimp): Promise<void> {
     let image = await readBaseImage();
 
     image = await addFontSizeNotice(image);
-    image = await addLatestCommitInfoToImage(image, getLatestCommit(resp));
+    image = await addLatestCommitInfoToImage(image, await getLatestCommit(resp));
     image = await addStarredReposToImage(image, getLatestWatchedRepos(resp));
 
     await saveNewimage(image);
