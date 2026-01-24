@@ -1,32 +1,32 @@
 <details>
   <summary>My stuff</summary>
-  
+
 [![behold my stuff](./behold-no-bg-latest.png)](https://www.youtube.com/watch?v=kAiDGQAncGE)
 
 </details>
 
 [thassio.dev](https://thassio.dev)
-  
-I'm a backend developer (mostly, but I do some <i>React</i> from time to time) that does stuff in <i>Javascript/Typescript</i> (95%) and <i>Go</i> (5%, but wanting to do more).
 
-Right now I'm working freelance and building open source projects.
+Backend developer with 9+ years building cloud-native APIs, data pipelines, and integrations at scale.
 
-### Environment
-![xps](https://img.shields.io/badge/dell-XPS%209320%20-007DB8?style=for-the-badge&logo=dell&logoColor=white)
-![Archbtw](https://img.shields.io/badge/Arch_Linux-1793D1?style=for-the-badge&logo=arch-linux&logoColor=white)
-![Neovim](https://img.shields.io/badge/NeoVim-%2357A143.svg?&style=for-the-badge&logo=neovim&logoColor=white)
-![Alacritty](https://img.shields.io/badge/alacritty-F46D01?style=for-the-badge&logo=alacritty&logoColor=white)
-![Tmux](https://img.shields.io/badge/tmux-1BB91F?style=for-the-badge&logo=tmux&logoColor=white)
+### What I'm Building
 
-### Languages
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-![Go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)
+- **[cmdvault](https://github.com/thassiov/cmdvault)** — CLI snippet manager written in Go
+- **[sump](https://github.com/thassiov/sump)** — Self-hosted identity provider (OpenID Connect)
+- **[relay](https://github.com/thassiov/relay)** — Backend-agnostic web interface for LLM CLIs
 
---------------- 
+### Tech
+
+TypeScript · Node.js · Go · PostgreSQL · AWS · Kubernetes · Docker
+
+### Links
+
+[LinkedIn](https://linkedin.com/in/thassiov) · [CV](./thassio-victor-cv.pdf)
+
+---------------
 <details>
   <summary>The image (my stuff) is updated via a small script I wrote and is run via gh actions.</summary>
-  
+
   The idea behind it is:
   - call GitHub's REST API (using [@octokit/rest](https://octokit.github.io/rest.js/v20)) for the latests public acitivity in my account
   - filter the latest commit (message, sha, date, repo)
