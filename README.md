@@ -7,7 +7,7 @@
 
 [thassio.dev](https://thassio.dev)
 
-Backend developer with 9+ years building cloud-native APIs, data pipelines, and integrations at scale.
+Backend developer with 10+ years building cloud-native APIs, data pipelines, and integrations at scale.
 
 ### What I'm Building
 
