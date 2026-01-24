@@ -19,6 +19,17 @@ Backend developer with 10+ years building cloud-native APIs, data pipelines, and
 
 TypeScript · Node.js · Go · PostgreSQL · AWS · Kubernetes · Docker
 
+### Homelab
+
+Running a self-hosted infrastructure at home:
+- **Proxmox VE** cluster (4 nodes) with LXC containers and VMs
+- **OPNsense** firewall/router with DNS, DNSBL ad-blocking
+- **Observability stack**: Prometheus, Loki, Grafana, Alloy
+- **Automation**: Ansible provisioning, custom bash tooling
+- **AI-assisted ops**: Claude Code for infrastructure work, debugging, and automation
+
+Building [relay](https://github.com/thassiov/relay) as my daily interface for Claude Code.
+
 ### Links
 
 [LinkedIn](https://linkedin.com/in/thassiov) · [CV](./thassio-victor-cv.pdf)
