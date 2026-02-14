@@ -13,7 +13,7 @@ Backend developer with 10+ years building cloud-native APIs, data pipelines, and
 
 - **[cmdvault](https://github.com/thassiov/cmdvault)** — CLI snippet manager written in Go
 - **[sump](https://github.com/thassiov/sump)** — Self-hosted identity provider (OpenID Connect)
-- **[relay](https://github.com/thassiov/relay)** — Backend-agnostic web interface for LLM CLIs
+- **[nib](https://github.com/thassiov/nib)** — Self-hosted Excalidraw powered platform with gallery, users owned drawings
 
 ### Tech
 
